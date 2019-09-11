@@ -7,14 +7,21 @@ const Header = (props) => {
     const {branding} = props
     return (
         <div>
-            <h1 style={{color:'red', fontSize: '50px'}}>{branding}</h1>
+
+            <h1>{branding}</h1>
+
         </div>
     )
 }
 
 
+// inline styling
+//h1 style={headingStyle}>{branding}</h1>
 
-
+// const headingStyle = {
+//     color:'red',
+//     fontSize: '20px'
+// }
 
 // validation of the data received
 Header.propTypes = {
