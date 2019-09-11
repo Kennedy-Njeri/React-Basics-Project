@@ -1,6 +1,7 @@
 import React from 'react';
 import Contact from "./components/Contact";
 import Header from "./components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './App.css';
 
@@ -22,14 +23,18 @@ function App() {
   return (
     <div className="App">
       <Header branding="Contact Manager"/>
-      <Contact name="Kennedy" email="kennedy@gmail.com" phone="0704107711" />
-      <Contact name="Carol" email="Carol@gmail.com" phone="0704107814" />
-      {/*{hello ? <h2>Hello: {name.toUpperCase() }</h2> : null }*/}
-
-      {/*{math}*/}
-
+        <div className="container">
+            <Contact name="Kennedy" email="kennedy@gmail.com" phone="0704107711" />
+            <Contact name="Carol" email="Carol@gmail.com" phone="0704107814" />
+        </div>
     </div>
   );
 }
+
+// {/*{hello ? <h2>Hello: {name.toUpperCase() }</h2> : null }*/}
+//
+// {/*{math}*/}
+
+
 
 export default App;
