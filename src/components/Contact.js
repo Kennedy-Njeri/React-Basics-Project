@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 
 
 class Contact extends Component {
+    state = {}
+
+    onShowClick = (name, e) => {
+        console.log(name)
+    }
 
     // static propTypes = {
     //     name: PropTypes.string.isRequired,
@@ -16,7 +21,7 @@ class Contact extends Component {
         const {name, email, phone } = this.props.contact
         return (
             <div className="card card-body mb-3">
-                <h4>{name}</h4>
+                <h4>{name} <i onClick={this.onShowClick} className="fas fa-sort-down"></i> </h4>
                 <ul className="list-group">
                     <li className="list-group-item">Email: {email}</li>
                     <li className="list-group-item">Phone: {phone}</li>
@@ -37,3 +42,7 @@ Contact.propTypes = {
 
 
 export default Contact;
+
+
+
+//<h4>{name} <i onClick={this.onShowClick.bind(this, name)} className="fas fa-sort-down"></i> </h4>
