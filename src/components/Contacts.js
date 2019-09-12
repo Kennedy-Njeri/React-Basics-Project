@@ -41,8 +41,6 @@ class Contacts extends Component {
 
     }
 
-
-
     render() {
         const {contacts} = this.state
         return (
