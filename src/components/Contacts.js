@@ -60,5 +60,4 @@ class Contacts extends Component {
 export default Contacts;
 
 
-
 // property contact to be passed into Contact
