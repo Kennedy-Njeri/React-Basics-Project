@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-
+import {Consumer} from "../context";
 
 
 class Contact extends Component {
     state = {
         showContactInfo: false
     }
-    onDeleteClick= () => {
+    onDeleteClick= (id, dispatch) => {
         //console.log("clicked")
-        this.props.deleteClickHandler()
+        //this.props.deleteClickHandler()
+        dispatch({type: 'DELETE_CONTACT', payload: id})
     }
 
     // onShowClick = (e) => {
@@ -24,23 +25,32 @@ class Contact extends Component {
 
     render() {
 
-        const {name, email, phone } = this.props.contact
+        const {id, name, email, phone } = this.props.contact
         const { showContactInfo } = this.state
 
         return (
-            <div className="card card-body mb-3">
-                <h4>{name} <i onClick={() =>
-                    this.setState({showContactInfo: !this.state.showContactInfo}) } className="fas fa-sort-down" style={{cursor: 'pointer'}}></i>
+            <Consumer>
+                {value => {
+                    const {dispatch} = value
+                return(
 
-                    <i className="fas fa-times" style={{cursor: 'pointer', float:'right', color:'red'}} onClick={this.onDeleteClick} />
+                    <div className="card card-body mb-3">
+                        <h4>{name} <i onClick={() =>
+                            this.setState({showContactInfo: !this.state.showContactInfo}) } className="fas fa-sort-down" style={{cursor: 'pointer'}}></i>
 
-                </h4>
+                            <i className="fas fa-times" style={{cursor: 'pointer', float:'right', color:'red'}} onClick={this.onDeleteClick.bind(this, id, dispatch)} />
 
-                {showContactInfo ? ( <ul className="list-group">
-                    <li className="list-group-item">Email: {email}</li>
-                    <li className="list-group-item">Phone: {phone}</li>
-                </ul>) : null}
-            </div>
+                        </h4>
+
+                        {showContactInfo ? ( <ul className="list-group">
+                            <li className="list-group-item">Email: {email}</li>
+                            <li className="list-group-item">Phone: {phone}</li>
+                        </ul>) : null}
+                    </div>
+                )
+                }}
+            </Consumer>
+
         );
     }
 }
@@ -49,7 +59,7 @@ class Contact extends Component {
 
 Contact.propTypes = {
     contact: PropTypes.object.isRequired,
-    deleteClickHandler: PropTypes.func.isRequired
+    //deleteClickHandler: PropTypes.func.isRequired
     // email:PropTypes.string.isRequired,
     // phone:PropTypes.string.isRequired,
 }
