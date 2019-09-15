@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Provider} from "./context";
 import './App.css';
 import AddContact from "./components/contacts/AddContact";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import About from "./components/pages/About";
 
 
 function App() {
@@ -24,13 +26,19 @@ function App() {
 
   return (
       <Provider>
+          <Router>
     <div className="App">
       <Header branding="Contact Manager"/>
         <div className="container">
-            <AddContact />
-           <Contacts />
+           <Switch>
+               <Route exact path="/" component={Contacts} />
+               <Route exact path="/contact/add" component={AddContact} />
+               <Route exact path="/about" component={About} />
+
+           </Switch>
         </div>
     </div>
+          </Router>
       </Provider>
   );
 }
