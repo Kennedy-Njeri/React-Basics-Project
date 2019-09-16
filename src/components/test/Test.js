@@ -14,6 +14,23 @@ class Test extends Component {
         console.log("ComponentDidUpdate...")
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("ComponentDidUpdate...")
+    }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        console.log("ComponentWillUpdate...")
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log("ComponentWillReceiveProps...")
+    }
+
+    // static getSnapshotBeforeUpdate(prevProps, prevState) {
+    // }
+
+
+
     render() {
         return (
             <div>
