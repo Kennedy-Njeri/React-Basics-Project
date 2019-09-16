@@ -50,6 +50,14 @@ export class Provider extends Component {
 
     }
 
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log("ComponentDidUpdate...")
+    // }
+    //
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     console.log("ComponentWillUpdate...")
+    // }
+
     render() {
         return (
            <Context.Provider value={this.state}>
