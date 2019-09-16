@@ -2,29 +2,40 @@ import React, {Component} from 'react';
 
 class Test extends Component {
 
+    state = {
+        title: '',
+        completed: ''
+    }
+
     componentDidMount() {
-        console.log("ComponentDidMount...")
+        //console.log("ComponentDidMount...")
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(data => this.setState({
+                title:data.title,
+                completed:data.completed
+            }))
     }
 
-    componentWillMount() {
-        console.log("ComponentWillMount...")
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("ComponentDidUpdate...")
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("ComponentDidUpdate...")
-    }
-
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        console.log("ComponentWillUpdate...")
-    }
-
-    componentWillReceiveProps(nextProps, nextContext) {
-        console.log("ComponentWillReceiveProps...")
-    }
+    // componentWillMount() {
+    //     console.log("ComponentWillMount...")
+    // }
+    //
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log("ComponentDidUpdate...")
+    // }
+    //
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log("ComponentDidUpdate...")
+    // }
+    //
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     console.log("ComponentWillUpdate...")
+    // }
+    //
+    // componentWillReceiveProps(nextProps, nextContext) {
+    //     console.log("ComponentWillReceiveProps...")
+    // }
 
     // static getSnapshotBeforeUpdate(prevProps, prevState) {
     // }
@@ -32,9 +43,11 @@ class Test extends Component {
 
 
     render() {
+        const {title, completed} = this.state
         return (
             <div>
-                <h1>Test</h1>
+                <h1>{title}</h1>
+                <h2>Status: {completed}</h2>
             </div>
         );
     }
