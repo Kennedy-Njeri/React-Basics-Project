@@ -21,7 +21,6 @@ class Contacts extends Component {
     // }
 
     render() {
-
         return (
             <Consumer>
                 {value => {
@@ -39,9 +38,7 @@ class Contacts extends Component {
                         </React.Fragment>
                     )
                 }}
-
             </Consumer>
-
         )
 
     }
