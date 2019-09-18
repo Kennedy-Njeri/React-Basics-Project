@@ -25,7 +25,6 @@ function App() {
   //   math = null
   // }
 
-
   return (
       <Provider>
           <Router>
@@ -38,8 +37,6 @@ function App() {
                <Route exact path="/about" component={About} />
                <Route exact path="/test" component={Test} />
                <Route component={NotFound} />
-
-
            </Switch>
         </div>
     </div>

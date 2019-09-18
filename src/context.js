@@ -7,6 +7,7 @@ const Context = React.createContext()
 
 
 const reducer = (state, action) => {
+
     switch (action.type) {
         case 'DELETE_CONTACT':
             return {
