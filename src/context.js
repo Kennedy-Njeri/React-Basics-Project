@@ -57,8 +57,6 @@ export class Provider extends Component {
            </Context.Provider>
         )
     }
-
-
 }
 
 
