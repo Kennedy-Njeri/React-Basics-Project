@@ -59,5 +59,4 @@ export class Provider extends Component {
     }
 }
 
-
 export const Consumer = Context.Consumer
