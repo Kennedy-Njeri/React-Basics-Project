@@ -76,6 +76,4 @@ Contact.propTypes = {
 
 export default Contact;
 
-
-
 //<h4>{name} <i onClick={this.onShowClick.bind(this, name)} className="fas fa-sort-down"></i> </h4>
